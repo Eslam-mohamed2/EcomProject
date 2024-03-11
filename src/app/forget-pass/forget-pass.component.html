@@ -1,0 +1,19 @@
+<div class="main d-flex justify-content-center align-items-center">
+    <div class="w-75">
+        <h1 class="text-main mb-5">Forget Password ??</h1>
+        <h2 class="alert alert-danger" *ngIf="errMsg">{{errMsg}}</h2>
+        <form (ngSubmit)="sendData(forgetPassData)" [formGroup]="forgetPassData">
+            <div class="mb-4">
+                <label>E-Mail</label>
+                <input type="email" class="form-control" formControlName="email">
+                <div class="alert alert-danger" *ngIf="forgetPassData.get('email')?.errors && forgetPassData.get('email')?.touched">
+                    <p class="text-capitalize fw-bold" *ngIf="forgetPassData.get('email')?.errors?.['required']">this field is required</p>
+                    <p class="text-capitalize fw-bold" *ngIf="forgetPassData.get('email')?.errors?.['email']">enter a valid email</p>
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn bg-main text-light" [disabled]="forgetPassData.invalid">Send Data <i class="fa-solid fa-arrows-spin fa-spin" *ngIf="isLoading"></i></button>
+            </div>
+        </form>
+    </div>
+</div>

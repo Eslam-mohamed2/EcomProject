@@ -1,0 +1,37 @@
+<h2 class="text-center my-4">My Orders</h2>
+<div *ngFor="let item of orders" class="mb-5 pb-5">
+    <div class="row g-4 py-4 text-center bg-body-secondary mt-5 rounded-top-3">
+        <div class="col-lg-2">
+            <p> Order Id: <span class="fw-bold">{{item.id}}</span></p>
+        </div>
+        <div class="col-lg-2">
+            <p> Delivered? : <span class="fw-bold" [ngClass]="{'text-success': item.isDelivered == true, 'text-danger': item.isDelivered == false}">{{item.isDelivered == true ? "Yes" : "No"}}</span></p>
+        </div>
+        <div class="col-lg-2">
+            <p> Paid? : <span class="fw-bold" [ngClass]="{'text-success': item.isPaid == true, 'text-danger': item.isPaid== false}">{{item.isPaid == true ? "Yes" : "No"}}</span></p>
+        </div>
+        <div class="col-lg-2">
+            <p> Payment Method: <span class="fw-bold text-primary">{{item.paymentMethodType}}</span></p>
+        </div>
+        <div class="col-lg-2">
+            <p> Order Date: <span class="fw-bold">{{item.createdAt.toString().slice(0,10)}}</span></p>
+        </div>
+        <div class="col-lg-2">
+            <p> Total Price: <span class="fw-bold text-main">{{item.totalOrderPrice}}</span></p>
+        </div>
+    </div>
+    <div class="row g-4 py-3 my-3 text-center cursor-pointer border-top border-bottom align-items-center" *ngFor="let product of item.cartItems" [routerLink]="['/details', product.product._id]">
+        <div class="col-lg-3">
+            <div><img [src]="product.product.imageCover" alt="" class="w-25"></div>
+        </div>
+        <div class="col-lg-3">
+            <div><p class="text-secondary">{{product.product.title}}</p></div>
+        </div>
+        <div class="col-lg-3">
+            <div><p>Price: <span class="fw-bold text-main">{{product.price}}</span></p></div>
+        </div>
+        <div class="col-lg-3">
+            <div><p> Count: <span class="fw-bold text-primary">{{product.count}}</span></p></div>
+        </div>
+    </div>
+</div>

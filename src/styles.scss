@@ -1,0 +1,196 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+
+:root {
+    --main-color: #0aad0a;
+    --light-color: #f0f3f2;
+    --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --font-family: 'Encode Sans Expanded', sans-serif;
+    --rating-color: #ffc908;
+    --main-shadow: 0px 0px 10px var(--main-color)
+}
+
+body {
+    font-family: var(--font-family) !important;
+}
+
+.rating-color {
+    color: var(--rating-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.product:hover {
+      
+    border: solid 1px var(--main-color);
+}
+
+.product .btn {
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.product:hover .btn {
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+
+.font-sm {
+    font-size: 14px;
+}
+
+.text-main {
+    color: var(--main-color);
+}
+
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+    background-color: var(--light-color) !important;
+}
+.bg-main-url {
+  background-image: url(../src/assets/images/light-patten.svg);
+  background-size: cover;
+  background-position: center;
+
+}
+.w-90{
+    width: 90% !important;
+}
+.w-85{
+    width: 85% !important;
+}
+.w-3 {
+    width: 3% !important;
+}
+.w-5 {
+    width: 5% !important;
+}
+.w-13 {
+    width: 13% !important;
+}
+.main {
+    min-height: 652px;
+}
+.btn:hover {
+    background-color: #0d870d !important;
+    border-color: #0aad0a !important;
+}
+.form-control:focus {
+    box-shadow: var(--main-shadow);
+    border: 1px solid var(--main-color);
+}
+
+.innerBox {
+    transition: all 0.6s;
+}
+.innerBox:hover {
+    box-shadow: var(--main-shadow);
+}
+.fav {
+    color: var(--main-color);
+    transition: all 0.6s;
+}
+.fav:hover{
+    color: rgb(176, 27, 27);
+}
+.addBtn{
+    left: -100%;
+    transition: all 0.6s;
+}
+.innerBox:hover .addBtn {
+    left: 0;
+}
+.mh{
+    max-height: 183px !important;
+}
+.mh-2{
+    max-height: 250px;
+    min-height: 250px;
+}
+.pageNum{
+    width: 21.85px;
+    height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s;
+}
+.pageNum:hover {
+    background-color: var(--main-color) !important;
+}
+.ngx-pagination .current {
+    background-color: var(--main-color) !important;
+}
+.h-400{
+    height: 370px;
+}
+.w-30{
+    width: calc(100% / 3) !important;
+}
+
+// ------------------------------------
+// ------------------------------------
+// ------------------------------------
+/* Large desktop */
+@media (max-width: 1200px) { 
+    .cover{
+        height: 183px;
+    }
+            .w-r-100{
+        width: 100% !important;
+    }
+    .gap-r-1{
+        gap: 1.25rem !important;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+        .oF-r-contain{
+        object-fit: contain !important;
+    }
+        .w-5 {
+        width: 15% !important;
+    }
+    .w-13 {
+        width: 23% !important;
+    }
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {  
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {  
+    .oF-r-contain{
+        object-fit: contain !important;
+    }
+    .w-r-100{
+        width: 100% !important;
+    }
+    .gap-r-1{
+        gap: 1.25rem;
+    }
+    .w-5 {
+        width: 15% !important;
+    }
+    .w-13 {
+        width: 23% !important;
+    }
+}

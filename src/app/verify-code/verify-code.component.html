@@ -1,0 +1,20 @@
+<div class="main d-flex justify-content-center align-items-center">
+    <div class="w-75">
+        <h1 class="text-main text-capitalize text-center">verifying code :</h1>
+        <h2 class="w-50 mx-auto alert alert-danger" *ngIf="errMsg">{{errMsg}}</h2>
+        <div class="w-50 mx-auto alert alert-success" *ngIf="validCode">
+            <h2>Success</h2>
+            <p class="text-capitalize">please wait till you redirect to reset password page</p>
+        </div>
+            <form (ngSubmit)="sendCode(verifying)" [formGroup]="verifying">
+                <div class="mb-4 w-50 mx-auto">
+                    <label class="text-capitalize">verify code</label>
+                    <input type="text" class="form-control" formControlName="resetCode">
+                    <p class="alert alert-danger fw-bold text-capitalize" *ngIf="verifying.get('resetCode')?.errors?.['required'] && verifying.get('resetCode')?.touched">verify code is required</p>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn bg-main text-light" [disabled]="verifying.invalid">Verify <i class="fa-solid fa-arrows-spin fa-spin" *ngIf="isLoading"></i></button>
+                </div>
+            </form>
+    </div>
+</div>

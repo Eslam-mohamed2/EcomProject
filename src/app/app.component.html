@@ -1,0 +1,15 @@
+<app-nav-bar></app-nav-bar>
+<div class="w-100 bg-main-url">
+<div class="container">
+  <router-outlet></router-outlet>
+  <div class="cart cursor-pointer z-3" [routerLink]="['/cart']" *ngIf="isLogin">
+    <i class="fa-solid fa-cart-shopping fa-xl"><span class="position-absolute not">{{cartNum}}</span></i>
+  </div>
+  <div class="wish bg-danger cursor-pointer z-3" [routerLink]="['/wish']" *ngIf="isLogin">
+    <i class="fa-solid fa-heart fa-xl text-light"><span class="position-absolute not bg-main">{{wishNum}}</span></i>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>
+<ngx-spinner bdColor="rgba(255, 255, 255, 1)" template="<img src='./assets/images/freshcart-logo.svg'>" size='large' class="w-100">
+</ngx-spinner>

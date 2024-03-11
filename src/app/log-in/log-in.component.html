@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center align-items-center main">
+    <div class="w-75">
+        <h1 class="mb-5 text-main">Log In :</h1>
+        <h2 class="alert alert-danger" *ngIf="errMsg">{{errMsg}}</h2>
+        <form (ngSubmit)="logIn(loginForm)" [formGroup]="loginForm">
+        <div class="mb-3">
+            <label>E-Mail :</label>
+            <input type="text" formControlName="email" class="form-control">
+            <p class="alert alert-danger fw-bold text-capitalize" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors">enter a valid email</p>
+        </div>
+        <div class="mb-4">
+            <label>Password :</label>
+            <input type="password" formControlName="password" class="form-control">
+            <p class="alert alert-danger fw-bold text-capitalize" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors">enter a valid password</p>
+        </div>
+        <div class="text-end">
+            <a routerLink="/forgetPass" class="text-capitalize text-decoration-none me-4 text-main">forget password ?</a>
+            <button class="btn bg-main text-light px-4" type="submit" [disabled]="loginForm.invalid">Login <i class="fa-solid fa-arrows-spin fa-spin" *ngIf="isLoading"></i></button>
+        </div>
+        </form>
+    </div>
+</div>

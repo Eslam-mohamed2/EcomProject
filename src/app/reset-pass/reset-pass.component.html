@@ -1,0 +1,38 @@
+<div class="main d-flex justify-content-center align-items-center">
+    <div class="w-75">
+        <h1>New Password :</h1>
+        <h2 class="alert alert-danger" *ngIf="errMsg">{{errMsg}}</h2>
+        <div class="alert alert-success" *ngIf="successMsg">
+            <h2>Success</h2>
+            <p class="text-capitalize">please wait till you redirect to login page</p>
+        </div>
+        <form (ngSubmit)="changePass(resetForm)" [formGroup]="resetForm">
+            <div class="mb-4">
+                <label>E-Mail</label>
+                <input type="email" class="form-control" formControlName="email">
+                <div class="alert alert-danger fw-bold text-capitalize" *ngIf="resetForm.get('email')?.errors && resetForm.get('email')?.touched">
+                    <p *ngIf="resetForm.get('email')?.errors?.['required']">this field is required</p>
+                    <p *ngIf="resetForm.get('email')?.errors?.['email']">enter a valid email</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label>New Password</label>
+                <input type="password" class="form-control" formControlName="newPassword">
+                <div class="alert alert-danger" *ngIf="resetForm.get('newPassword')?.errors && resetForm.get('newPassword')?.touched">
+                    <p class="text-capitalize fw-bold" *ngIf="resetForm.get('newPassword')?.errors?.['required']">Password is required
+                    </p>
+                    <ul class="text-capitalize fw-bold" *ngIf="resetForm.get('newPassword')?.errors?.['pattern']">
+                        <li>At least one small character</li>
+                        <li>At least one capital character</li>
+                        <li>At least one number</li>
+                        <li>At least one special character[@, $, ., #, !, %, *, ?, &, ^]</li>
+                        <li>the total length must be in the range [8-15]</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn bg-main text-light">Change Password</button>
+            </div>
+        </form>
+    </div>
+</div>

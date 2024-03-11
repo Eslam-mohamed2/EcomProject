@@ -1,0 +1,18 @@
+.innner img {
+  // width: 300px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 1s;
+}
+
+.layer:hover {
+  background-color: rgba(98, 194, 98, 0.527);
+  opacity: 1;
+}
